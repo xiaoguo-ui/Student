@@ -3,4 +3,50 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--错误页面-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.jsp</location>
+    </error-page>
+    <!--验证码请求Servlet-->
+    <servlet>
+        <servlet-name>CapServlet</servlet-name>
+        <servlet-class>com.guoyun.student.servlet.CapServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CapServlet</servlet-name>
+        <url-pattern>/CapServlet</url-pattern>
+    </servlet-mapping>
+    <!--登录请求Servlet-->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.guoyun.student.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <!--登录状态过滤-->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.guoyun.student.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/SystemServlet</url-pattern>
+    </filter-mapping>
+    <!--登录的主界面-->
+    <servlet>
+        <servlet-name>SystemServlet</servlet-name>
+        <servlet-class>com.guoyun.student.servlet.SystemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SystemServlet</servlet-name>
+        <url-pattern>/SystemServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
